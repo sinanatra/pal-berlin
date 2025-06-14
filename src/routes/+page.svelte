@@ -107,14 +107,14 @@
 
   @media (max-width: 520px) {
     .modal-content {
-      width: 99vw;
-      max-width: 99vw;
-      padding: 1.2em 0.8em 1.2em 1em;
+      width: 90vw;
+    
     }
     .button-row {
       gap: 0.7rem;
       bottom: 1.1rem;
     }
+
     .main-btn,
     .lang-btn {
       font-size: 1rem;
