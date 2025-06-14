@@ -1,5 +1,3 @@
-export const prerender = true;
-
 export async function POST({ request }) {
   try {
     const payload = await request.json();
