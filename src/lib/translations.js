@@ -9,9 +9,7 @@ export const translations = {
     form_unavailable: "Form not available.",
     submitted: "Submitted!",
     submission_failed: "Submission failed:",
-    about_text: `This map highlights pro-Palestinian bars and spaces in Berlin.
-Contribute or discover places where solidarity and community meet.
-If you know a place that belongs here, please Contribute!`,
+    about_text: `This map highlights pro-Palestinian venues in Berlin. If you know a place that belongs here, please contribute!`,
   },
 
   de: {
@@ -24,8 +22,6 @@ If you know a place that belongs here, please Contribute!`,
     submission_failed: "Abschicken fehlgeschlagen:",
     about: "Über",
     contribute: "Beitragen",
-    about_text: `Diese Karte zeigt pro-palästinensische Bars und Orte in Berlin.
-Entdecke solidarische Orte oder trage neue ein.
-Wenn du einen passenden Ort kennst, klicke bitte auf Beitragen!`,
+    about_text: `Diese Karte zeigt pro-palästinensische Orte in Berlin. Wenn du einen passenden Ort kennst, klicke bitte auf Beitragen!`,
   },
 };
