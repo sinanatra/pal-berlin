@@ -21,15 +21,15 @@
   function makeColor1Icon() {
     const color = getColor1();
     const svg = `
-      <svg width="32" height="48" xmlns="http://www.w3.org/2000/svg">
-        <ellipse ry="8" rx="8" cy="20" cx="16" fill="${color}" stroke="#222" stroke-width="1"/>
+      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="16" cy="16" rx="10" ry="10" fill="${color}" stroke="#222" stroke-width="1"/>
       </svg>
     `;
     return L.icon({
       iconUrl: "data:image/svg+xml," + encodeURIComponent(svg),
-      iconSize: [32, 48],
-      iconAnchor: [16, 40],
-      popupAnchor: [0, -38],
+      iconSize: [32, 32],
+      iconAnchor: [16, 16], 
+      popupAnchor: [0, -16],
       className: "custom-marker",
     });
   }
@@ -58,13 +58,12 @@
     markers = [];
     for (const place of places) {
       const popupContent = `
-  <div>
-    <strong>${place.name}</strong>
-    ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
-    ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
-  </div>
-`;
-
+        <div>
+          <strong>${place.name}</strong>
+          ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
+          ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
+        </div>
+      `;
       const marker = L.marker([place.lat, place.lon], {
         icon: makeColor1Icon(),
       })
@@ -80,7 +79,10 @@
     leafletLoaded = true;
     const L = leaflet.default;
 
-    map = L.map("map").setView([52.52, 13.405], 12);
+    map = L.map("map", {
+      zoomControl: true,
+      attributionControl: true,
+    }).setView([52.52, 13.405], 12);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
       map
     );
