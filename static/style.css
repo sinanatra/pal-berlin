@@ -1,0 +1,22 @@
+html {
+  --color-1: #9000ff;
+}
+
+::selection {
+  background-color: var(--color-1);
+  color: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+  color: var(--color-1);
+}
+
+button {
+  color: var(--color-1);
+}
