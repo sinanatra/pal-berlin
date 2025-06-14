@@ -58,11 +58,13 @@
     markers = [];
     for (const place of places) {
       const popupContent = `
-        <div>
-          <strong>${place.name}</strong>
-          ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
-        </div>
-      `;
+  <div>
+    <strong>${place.name}</strong>
+    ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
+    ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
+  </div>
+`;
+
       const marker = L.marker([place.lat, place.lon], {
         icon: makeColor1Icon(),
       })
