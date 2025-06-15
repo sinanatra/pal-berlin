@@ -86,9 +86,13 @@
       zoomControl: true,
       attributionControl: true,
     }).setView([52.52, 13.405], 12);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(
-      map
-    );
+
+    L.tileLayer(
+      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      {
+        attribution: "© OpenStreetMap © CartoDB",
+      }
+    ).addTo(map);
 
     loadPlaces();
   });
