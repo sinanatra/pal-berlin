@@ -67,7 +67,7 @@
     />
     <textarea
       bind:value={note}
-      placeholder={t.note || "Your note"}
+      placeholder={t.note || "Note"}
       class="border rounded p-2"
       rows="4"
       disabled={loading}
