@@ -131,7 +131,7 @@
 
   :global(.leaflet-popup-content-wrapper *) {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 16px !important;
     color: var(--color-1) !important;
   }
 
