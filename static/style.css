@@ -20,3 +20,7 @@ body {
 button {
   color: var(--color-1);
 }
+
+a {
+    color: var(--color-1);
+}

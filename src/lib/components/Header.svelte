@@ -1,4 +1,4 @@
-<h1>pro pal berlin</h1>
+<h1>pal berlin</h1>
 
 <style>
   h1 {

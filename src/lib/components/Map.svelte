@@ -128,4 +128,10 @@
     z-index: 1000;
     pointer-events: none;
   }
+
+  :global(.leaflet-popup-content-wrapper *) {
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--color-1) !important;
+  }
 </style>
