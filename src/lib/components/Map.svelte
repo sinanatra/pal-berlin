@@ -64,7 +64,7 @@
         <div>
           <strong>${place.name}</strong>
           ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
-          ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
+          ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
         </div>
       `;
       const marker = L.marker([place.lat, place.lon], {
@@ -113,6 +113,23 @@
     z-index: 0;
   }
 
+  :global(.custom-link) {
+    display: inline-block;
+    font-family: "Arial", sans-serif;
+    font-size: 12px !important;
+    color: #000;
+    text-decoration: none;
+  }
+
+  :global(.custom-link::before) {
+    content: "☞ ";
+    margin-right: 0.3em;
+  }
+
+  :global(.custom-link:hover) {
+    color: var(--color-1) !important;
+  }
+
   .loading-indicator {
     position: fixed;
     top: 0;
@@ -129,13 +146,48 @@
     pointer-events: none;
   }
 
-  :global(.leaflet-popup-content-wrapper *) {
-    font-weight: 400;
-    font-size: 16px !important;
+  :global(.leaflet-popup-content-wrapper) {
+    background-color: #fff !important;
     color: var(--color-1) !important;
+    border-radius: 10px !important;
+    padding: 0.8em 1.4em !important;
+    font-family: "Arial", sans-serif !important;
+    max-width: none !important;
+    width: auto;
+    display: inline-block;
   }
 
-  :global(.leaflet-popup-content-wrapper h1, .leaflet-popup-content-wrapper strong) {
-    font-size: 22px;
+  :global(.leaflet-popup-content-wrapper *) {
+    color: var(--color-1) !important;
+    font-weight: 400 !important;
+  }
+
+  :global(.leaflet-popup-content) {
+    margin: 0 !important;
+    line-height: 1.4;
+    font-size: 16px;
+  }
+
+  :global(.leaflet-popup-content h1),
+  :global(.leaflet-popup-content h2),
+  :global(.leaflet-popup-content strong) {
+    font-size: 20px !important;
+    margin: 0 0 0.5em 0;
+  }
+
+  :global(.leaflet-popup-content p) {
+    margin: 0.1em 0;
+    font-weight: 400;
+  }
+
+  :global(.leaflet-popup-tip) {
+    display: none;
+  }
+
+  :global(.leaflet-popup-close-button) {
+    color: #000 !important;
+    font-size: 18px;
+    top: 4px;
+    right: 6px;
   }
 </style>
