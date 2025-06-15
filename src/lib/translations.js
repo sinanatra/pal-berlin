@@ -4,7 +4,7 @@ export const translations = {
     contribute: "Contribute",
     name: "Name of Place",
     address: "Address",
-    note: "Add a note",
+    note: "How does this place show solidarity?",
     submit: "Submit",
     form_unavailable: "Form not available.",
     submitted: "Submitted!",
@@ -21,7 +21,7 @@ This project is grounded in care, not harm. If it becomes clear that the map pos
   de: {
     name: "Name des Ortes",
     address: "Adresse",
-    note: "Deine Notiz",
+    note: "Wie zeigt dieser Ort Solidarität?",
     submit: "Abschicken",
     form_unavailable: "Formular nicht verfügbar.",
     submitted: "Abgeschickt!",
