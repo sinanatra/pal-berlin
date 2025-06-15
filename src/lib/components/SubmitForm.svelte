@@ -85,8 +85,8 @@
     font-size: 18px;
     border: 1px solid #eee;
     border-radius: 8px;
-    padding: 10px 0;
-    width: 100%;
+    padding: 10px 5px;
+    /* width: 100%; */
     outline: none;
     background: #faf8ff;
     transition: border 0.16s;
