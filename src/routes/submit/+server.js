@@ -2,7 +2,7 @@ export async function POST({ request }) {
   try {
     const payload = await request.json();
     const scriptUrl =
-      "https://script.google.com/macros/s/AKfycbyZSKcqHGn_GwET2_X7Ha7UvTqH3LVKm8_UJ8ASykfCA3QCgYLkpjgSeINuU6u3t33nKQ/exec";
+      "https://script.google.com/macros/s/AKfycbyWwIqYRk6kB_pV-YoEMFMvTqtcenSI2dPG2bLPps2c2iLVs56qyr0yNCtNW1O8CrpBkA/exec";
 
     const upstreamRes = await fetch(scriptUrl, {
       method: "POST",

@@ -10,6 +10,7 @@
   let note = "";
   let submitted = false;
   let loading = false;
+  let informed = false;
 
   async function submitToSheet() {
     loading = true;
@@ -17,7 +18,7 @@
       const res = await fetch("/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, address, note }),
+        body: JSON.stringify({ name, address, note, informed }),
       });
       let result = await res.json();
       if (res.ok && result.result === "success") {
@@ -66,11 +67,17 @@
     />
     <textarea
       bind:value={note}
-      placeholder={t.note || "Your note or story"}
+      placeholder={t.note || "Your note"}
       class="border rounded p-2"
       rows="4"
       disabled={loading}
     ></textarea>
+
+    <label class="text-sm flex items-start gap-2">
+      <input type="checkbox" bind:checked={informed} class="mt-1" />
+      {t.owner_informed || "The venue is aware of this submission"}
+    </label>
+
     <button
       type="submit"
       class="bg-green-600 text-white py-2 px-4 rounded font-semibold"

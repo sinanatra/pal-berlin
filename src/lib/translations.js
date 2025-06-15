@@ -9,6 +9,7 @@ export const translations = {
     form_unavailable: "Form not available.",
     submitted: "Submitted!",
     submission_failed: "Submission failed:",
+    owner_informed: "The venue is aware of this submission",
     about_text: `This map highlights venues, spaces, and events in Berlin that are supportive of Palestinian people — whether through solidarity, cultural programming, volunteering, education, or community organizing. The goal is to make these spaces more visible and accessible to those who want to connect, learn, and support.
 
 This is a personal initiative. The views expressed here are my own and do not represent any group or organization. Supporting Palestinian rights and well-being is not the same as being anti-Israel — this map is about standing with people who are suffering, not against anyone else.
@@ -28,6 +29,7 @@ This project is grounded in care, not harm. If it becomes clear that the map pos
     submission_failed: "Abschicken fehlgeschlagen:",
     about: "Über",
     contribute: "Beitragen",
+    owner_informed: "Der Ort ist über diesen Eintrag informiert",
     about_text: `Diese Karte zeigt Orte, Räume und Veranstaltungen in Berlin, die sich solidarisch mit der palästinensischen Bevölkerung zeigen – sei es durch kulturelle Programme, Freiwilligenarbeit, Bildungsangebote oder gemeinschaftliches Engagement. Ziel ist es, diese Orte sichtbarer und zugänglicher zu machen für alle, die sich vernetzen, informieren und unterstützen möchten.
 
 Dieses Projekt ist eine persönliche Initiative. Die hier geäußerten Ansichten sind meine eigenen und repräsentieren keine Organisation oder Gruppe. Pro-palästinensisch zu sein bedeutet nicht, anti-israelisch zu sein – es geht darum, Menschen in Not beizustehen, nicht gegen andere zu sein.
