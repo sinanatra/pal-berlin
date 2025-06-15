@@ -147,6 +147,7 @@
   }
 
   :global(.leaflet-popup-content-wrapper) {
+    min-width: 150px;
     background-color: #fff !important;
     color: var(--color-1) !important;
     border-radius: 10px !important;
