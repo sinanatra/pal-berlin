@@ -98,11 +98,13 @@
   .modal-content {
     position: relative;
     background: #fff;
-    max-width: 92vw;
+    max-width: 80vw;
     width: 650px;
     padding: 10px;
     border-radius: 10px;
     min-height: 170px;
+    max-height: 80vh;
+    overflow: scroll;
   }
 
   @media (max-width: 520px) {

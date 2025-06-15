@@ -89,11 +89,10 @@
   form {
     background: rgba(255, 255, 255, 0.94);
     border-radius: 10px;
-    padding: 20px 18px 14px 18px;
-    box-shadow: 0 3px 18px rgba(0, 0, 0, 0.11);
+    padding: 10px;
     margin: 0 auto;
     display: grid;
-    gap: 13px;
+    gap: 10px;
   }
   input,
   textarea {
