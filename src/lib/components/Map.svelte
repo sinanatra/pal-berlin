@@ -162,7 +162,7 @@
     color: var(--color-1) !important;
     font-family: "Arial", sans-serif !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
     text-decoration: none;
   }
 
