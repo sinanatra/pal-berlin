@@ -19,22 +19,6 @@
     );
   }
 
-  function makeColor1Icon() {
-    const color = getColor1();
-    const svg = `
-      <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="16" cy="16" rx="10" ry="10" fill="${color}" stroke="#222" stroke-width="1"/>
-      </svg>
-    `;
-    return L.icon({
-      iconUrl: "data:image/svg+xml," + encodeURIComponent(svg),
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-      popupAnchor: [0, -16],
-      className: "custom-marker",
-    });
-  }
-
   async function loadPlaces() {
     loading = true;
     const response = await fetch(CSV_URL);
@@ -60,29 +44,33 @@
     markers.forEach((m) => map.removeLayer(m));
     markers = [];
     for (const place of places) {
-      // const popupContent = `
-      //   <div>
-      //     <strong>${place.name}</strong>
-      //     ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
-      //     ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
-      //   </div>
-      // `;
+      const iconHtml = `
+        <div class="custom-marker-container">
+          <div class="custom-marker-dot" style="background-color: ${getColor1()}"></div>
+          <div class="custom-marker-popup">
+            ${
+              place.link
+                ? `<strong><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">${place.name}</a></strong>`
+                : `<strong>${place.name}</strong>`
+            }
+          </div>
+        </div>
+      `;
 
-      const popupContent = `
-      <div>
-        ${
-          place.link
-            ? `<strong><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">${place.name}</a></strong>`
-            : `<strong>${place.name}</strong>`
-        }
-      </div>
-    `;
+      const customIcon = L.divIcon({
+        html: iconHtml,
+        className: "custom-marker-icon",
+        iconAnchor: [12, 12],
+      });
 
       const marker = L.marker([place.lat, place.lon], {
-        icon: makeColor1Icon(),
-      })
-        .addTo(map)
-        .bindPopup(popupContent);
+        icon: customIcon,
+      }).addTo(map);
+
+      marker.on("add", function () {
+        this.getElement().style.zIndex = 1000 - places.indexOf(place);
+      });
+
       markers.push(marker);
     }
   }
@@ -124,21 +112,63 @@
     z-index: 0;
   }
 
-  :global(.custom-link) {
-    display: inline-block;
-    font-family: "Arial", sans-serif;
-    /* font-size: 12px !important; */
-    color: #000;
+  :global(.custom-marker-icon) {
+    background: none;
+    border: none;
+  }
+
+  :global(.custom-marker-container) {
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  :global(.custom-marker-dot) {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #222;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  :global(.custom-marker-popup) {
+    background-color: white;
+    border-radius: 0 15px 15px 0;
+    white-space: nowrap;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease-in-out;
+    padding: 0 4px;
+    margin-left: -12px;
+    padding-left: 20px;
+    z-index: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  :global(.leaflet-marker-icon:hover .custom-marker-popup) {
+    transform: scaleX(1);
+  }
+
+  :global(.leaflet-marker-icon:hover) {
+    z-index: 1000 !important;
+  }
+
+  :global(.custom-marker-popup a),
+  :global(.custom-marker-popup strong) {
+    color: var(--color-1) !important;
+    font-family: "Arial", sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
     text-decoration: none;
   }
 
   :global(.custom-link::before) {
     content: "☞ ";
     margin-right: 0.3em;
-  }
-
-  :global(.custom-link:hover) {
-    color: var(--color-1) !important;
   }
 
   .loading-indicator {
@@ -155,54 +185,5 @@
     font-size: 1.5em;
     z-index: 1000;
     pointer-events: none;
-  }
-  :global(.leaflet-popup) {
-    margin-bottom: 10px !important;
-  }
-
-  :global(.leaflet-popup-content-wrapper) {
-    min-width: 150px;
-    background-color: #fff !important;
-    color: var(--color-1) !important;
-    border-radius: 10px !important;
-    padding: 1em 2em !important;
-    font-family: "Arial", sans-serif !important;
-    max-width: none !important;
-    width: auto;
-    display: inline-block;
-  }
-
-  :global(.leaflet-popup-content-wrapper *) {
-    color: var(--color-1) !important;
-    font-weight: 400 !important;
-  }
-
-  :global(.leaflet-popup-content) {
-    margin: 0 !important;
-    line-height: 1.4;
-    font-size: 16px;
-  }
-
-  :global(.leaflet-popup-content h1),
-  :global(.leaflet-popup-content h2),
-  :global(.leaflet-popup-content strong) {
-    font-size: 20px !important;
-    margin: 0 0 0.5em 0;
-  }
-
-  :global(.leaflet-popup-content p) {
-    margin: 0.1em 0;
-    font-weight: 400;
-  }
-
-  :global(.leaflet-popup-tip) {
-    display: none;
-  }
-
-  :global(.leaflet-popup-close-button) {
-    color: #000 !important;
-    font-size: 18px;
-    top: 4px;
-    right: 6px;
   }
 </style>
