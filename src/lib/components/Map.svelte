@@ -60,13 +60,24 @@
     markers.forEach((m) => map.removeLayer(m));
     markers = [];
     for (const place of places) {
+      // const popupContent = `
+      //   <div>
+      //     <strong>${place.name}</strong>
+      //     ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
+      //     ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
+      //   </div>
+      // `;
+
       const popupContent = `
-        <div>
-          <strong>${place.name}</strong>
-          ${place.note ? `<div style="margin-top:5px; color:#333; font-size:0.98em">${place.note}</div>` : ""}
-          ${place.link ? `<div style="margin-top:7px;"><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">Link</a></div>` : ""}
-        </div>
-      `;
+      <div>
+        ${
+          place.link
+            ? `<strong><a href="${place.link}" class="custom-link" target="_blank" rel="noopener noreferrer">${place.name}</a></strong>`
+            : `<strong>${place.name}</strong>`
+        }
+      </div>
+    `;
+
       const marker = L.marker([place.lat, place.lon], {
         icon: makeColor1Icon(),
       })
@@ -116,7 +127,7 @@
   :global(.custom-link) {
     display: inline-block;
     font-family: "Arial", sans-serif;
-    font-size: 12px !important;
+    /* font-size: 12px !important; */
     color: #000;
     text-decoration: none;
   }
@@ -145,13 +156,16 @@
     z-index: 1000;
     pointer-events: none;
   }
+  :global(.leaflet-popup) {
+    margin-bottom: 10px !important;
+  }
 
   :global(.leaflet-popup-content-wrapper) {
     min-width: 150px;
     background-color: #fff !important;
     color: var(--color-1) !important;
     border-radius: 10px !important;
-    padding: 0.8em 1.4em !important;
+    padding: 1em 2em !important;
     font-family: "Arial", sans-serif !important;
     max-width: none !important;
     width: auto;
