@@ -17,6 +17,12 @@ This is a personal initiative. The views expressed here are my own and do not re
 If you know of a space that should be included, you’re warmly encouraged to contribute. If you represent a venue listed here and wish to be removed, please don’t hesitate to reach out — your request will be respected.
 
 This project is grounded in care, not harm. If it becomes clear that the map poses a risk to any individuals or places, it will be restricted or taken down to protect those involved.`,
+    login_user: "Username",
+    login_pass: "Password",
+    login_btn: "Login",
+    incorrect: "Incorrect username or password",
+    login_about:
+      "This map highlights Berlin venues and spaces that support Palestinian people through solidarity, events, or community. Access is password-protected for safety and privacy.",
   },
 
   de: {
@@ -37,5 +43,11 @@ Dieses Projekt ist eine persönliche Initiative. Die hier geäußerten Ansichten
 Wenn du einen Ort kennst, der hier erscheinen sollte, kannst du ihn gerne vorschlagen. Falls du einen Eintrag entfernen lassen möchtest, nimm bitte Kontakt mit mir auf – dein Wunsch wird respektiert.
 
 Dieses Projekt basiert auf Fürsorge, nicht auf Schaden. Sollte sich zeigen, dass die Karte für Einzelpersonen oder Orte ein Risiko darstellt, wird sie eingeschränkt oder offline genommen, um deren Sicherheit zu gewährleisten.`,
+    login_user: "Benutzername",
+    login_pass: "Passwort",
+    login_btn: "Anmelden",
+    incorrect: "Benutzername oder Passwort falsch",
+    login_about:
+      "Diese Karte zeigt Orte und Räume in Berlin, die sich solidarisch mit Palästinenser:innen zeigen – Zugang ist aus Sicherheitsgründen passwortgeschützt.",
   },
 };
