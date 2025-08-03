@@ -1,6 +1,8 @@
 html {
   --color-1: #ffa200;
-  --color-1: #9000ff;
+  --color-2: #ae6e00;
+
+  /* --color-1: #9000ff; */
 }
 
 ::selection {

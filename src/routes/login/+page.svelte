@@ -62,7 +62,7 @@
 <style>
   .about-short {
     font-size: 1rem;
-    color: #543075;
+    color: var(--color-1);
     background: #f7f4fc;
     border-radius: 8px;
     padding: 0.75em 1em;
@@ -119,7 +119,7 @@
     background: #fff;
   }
   .main-btn {
-    background: var(--color-1, #1976d2);
+    background: var(--color-1, #222);
     color: #fff;
     border: none;
     border-radius: 10px;
@@ -135,7 +135,7 @@
     gap: 8px;
   }
   .main-btn:hover:not([disabled]) {
-    background: #6f00bb;
+    background: var(--color-2);
   }
   .main-btn[disabled],
   input[disabled] {
@@ -147,7 +147,7 @@
     width: 18px;
     height: 18px;
     border: 2.5px solid #fff;
-    border-top: 2.5px solid #b871e7;
+    border-top: 2.5px solid var(--color-2);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
     margin-right: 3px;
