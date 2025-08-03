@@ -1,13 +1,12 @@
 <script>
   import { translations } from "$lib/translations.js";
+  import CartoNo from "$lib/components/CartoNo.svelte";
   export let data;
-
   let lang =
     typeof navigator !== "undefined" && navigator.language.startsWith("de")
       ? "de"
       : "en";
   $: t = translations[lang];
-
   let password = "";
   let loading = false;
   function toggleLang() {
@@ -16,6 +15,12 @@
 </script>
 
 <div class="wall-root">
+  <CartoNo  />
+  <div class="button-row">
+    <button>{t.about}</button>
+    <button>{t.contribute}</button>
+    <button class="lang-btn">{lang === "en" ? "DE" : "EN"}</button>
+  </div>
   <div class="modal-bg auth-bg">
     <div class="modal-content auth-content" on:click|stopPropagation>
       <div class="about-short" style="margin-bottom:1.1em;">
@@ -118,6 +123,7 @@
     border: 1.5px solid var(--color-1);
     background: #fff;
   }
+
   .main-btn {
     background: var(--color-1, #222);
     color: #fff;
@@ -152,6 +158,32 @@
     animation: spin 0.7s linear infinite;
     margin-right: 3px;
   }
+
+  .button-row {
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    z-index: 40;
+    display: flex;
+    gap: 10px;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .button-row > * {
+    pointer-events: auto;
+  }
+
+  .button-row button {
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--color-1);
+    border-radius: 3px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
   @keyframes spin {
     to {
       transform: rotate(360deg);

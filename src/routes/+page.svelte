@@ -20,7 +20,7 @@
 </script>
 
 <Header />
-<Map />
+<Map loadData={true} />
 
 <div class="button-row">
   <button on:click={() => (showAbout = true)} class="main-btn">{t.about}</button
