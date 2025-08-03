@@ -8,9 +8,6 @@
   let leafletLoaded = false;
   let loading = true;
 
-  const CSV_URL =
-    "https://docs.google.com/spreadsheets/d/1l9VlCwg3toS74RoFnQ66iEWqxd0ND6Uz7ckhFB2XaVE/gviz/tq?tqx=out:csv";
-
   function getColor1() {
     return (
       getComputedStyle(document.documentElement)
@@ -21,7 +18,7 @@
 
   async function loadPlaces() {
     loading = true;
-    const response = await fetch(CSV_URL);
+    const response = await fetch("/api/places");
     const csvData = await response.text();
     places = d3
       .csvParse(csvData, (d) => ({
