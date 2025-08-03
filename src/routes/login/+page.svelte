@@ -117,7 +117,6 @@
     background: #faf8ff;
     transition: border 0.16s;
     margin-bottom: 0.7em;
-    width: 100%;
   }
   input:focus {
     border: 1.5px solid var(--color-1);
